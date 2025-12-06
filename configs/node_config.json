@@ -1,0 +1,57 @@
+{
+  "node": {
+    "id": 1,
+    "name": "sentinel-node-01",
+    "location": {
+      "latitude": 37.7749,
+      "longitude": -122.4194,
+      "elevation": 120
+    }
+  },
+  "sensor": {
+    "i2c_address": "0x48",
+    "calibration_time_sec": 30,
+    "smoke_threshold_ppm": 200,
+    "sampling_interval_ms": 1000
+  },
+  "vision": {
+    "model_path": "../models/smoke_detection.tflite",
+    "camera_device": 0,
+    "frame_width": 640,
+    "frame_height": 480,
+    "fps": 5,
+    "confidence_threshold": 0.75
+  },
+  "lora": {
+    "frequency_mhz": 433.0,
+    "bandwidth_khz": 125,
+    "spreading_factor": 12,
+    "coding_rate": 5,
+    "tx_power_dbm": 20,
+    "sync_word": "0x12",
+    "preamble_length": 8,
+    "crc_enabled": true
+  },
+  "mesh": {
+    "heartbeat_interval_sec": 30,
+    "node_timeout_sec": 90,
+    "max_retries": 3,
+    "retry_delay_ms": 500
+  },
+  "consensus": {
+    "threshold": 0.6,
+    "timeout_sec": 5,
+    "min_nodes": 2
+  },
+  "alert": {
+    "duration_sec": 60,
+    "cooldown_sec": 300,
+    "notification_methods": ["log", "gpio", "mqtt"]
+  },
+  "system": {
+    "debug_mode": false,
+    "log_level": "INFO",
+    "log_file": "/var/log/sentinel/sentinel.log",
+    "data_directory": "/var/lib/sentinel"
+  }
+}
