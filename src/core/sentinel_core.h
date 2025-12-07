@@ -4,6 +4,7 @@
 #include <memory>
 #include <chrono>
 #include <string>
+#include <cstdint>
 
 namespace sentinel {
 
